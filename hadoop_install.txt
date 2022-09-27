@@ -1,4 +1,5 @@
 ###  Hadoop Installation
+###  Windows Install: https://cwiki.apache.org/confluence/display/HADOOP2/Hadoop2OnWindows
 ###  Do this from a new terminal window
 # PS1="\u@\h:\w\$ "
 
@@ -104,6 +105,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 
 # Format the NameNode (answer yes (y) to formatting prompt)
+# Stop all services with $HADOOP_HOME/sbin/stop-all.sh
 hdfs namenode -format
 
 # Start the Hadoop Services and verify they are running
