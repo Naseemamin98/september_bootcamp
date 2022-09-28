@@ -3,6 +3,7 @@
 
 # Install Ubuntu Updates
 sudo su
+
 apt update -y | apt upgrade -y
 
 
@@ -15,8 +16,9 @@ curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add 
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 apt update -y | apt upgrade -y
 
-# Install MongoDB
+# Install MongoDB and MongoSH
 apt install mongodb-org -y
+apt install mongosh -y
 
 # Start MongoDB
 systemctl start mongod
@@ -25,8 +27,13 @@ systemctl status mongod
 # Enable MongoDB
 systemctl enable mongod
 
-# Verify MongoDB is running
+# Verify MongoDB, Compass and MongoSH are running
 mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+mongosh
+
+# Install Compass.  Perform this step as a regular user.  Not root.
+sudo apt install mongodb-compass -y
+mongodb-compass
 
 # Optional Step: (Creating a MongoDB Database with the CLI)
 https://www.mongodb.com/basics/create-database
