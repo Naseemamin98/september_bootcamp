@@ -18,9 +18,11 @@ apt update -y | apt upgrade -y
 # Install MongoDB
 apt install mongodb-org -y
 
-# Start & Enable MongoDB
+# Start MongoDB
 systemctl start mongod
 systemctl status mongod
+
+# Enable MongoDB
 systemctl enable mongod
 
 # Verify MongoDB is running
